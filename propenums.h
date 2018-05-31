@@ -1,0 +1,94 @@
+#ifndef PROPENUMS_H
+#define PROPENUMS_H
+#include <string>
+
+enum ObjectType
+{
+    base,
+    asset,
+    vulnerability,
+    threat,
+    risk
+};
+
+enum PropType
+{
+    noPropType      = 0,
+    confidentiality = 1,
+    integrity       = 2,
+    availability    = 3,
+    accountability  = 4,
+    anonymity       = 5,
+    pseudonymity    = 6,
+    unobservability = 7,
+    unlinkability   = 8
+};
+static const std::string PROPTYPES[] =
+{
+    "None"
+    "Confidentiality",
+    "Integrity",
+    "Availability",
+    "Accountability",
+    "Anonymity",
+    "Pseudonymity",
+    "Unobservability",
+    "Unlinkability"
+};
+
+enum PropValue
+{
+    none   = 0,
+    low    = 1,
+    medium = 2,
+    high   = 3
+};
+static const std::string PROPVALUES[] =
+{
+    "None",
+    "Low",
+    "Medium",
+    "High"
+};
+
+enum AssetType
+{
+    noAssetType = 0,
+    information = 1,
+    systems     = 2,
+    software    = 3,
+    hardware    = 4,
+    people      = 5
+};
+static const std::string ASSETTYPE[] =
+{
+    "None",
+    "Information",
+    "Systems",
+    "Software",
+    "Hardware",
+    "People"
+};
+
+enum Probability
+{
+    noProb      = 0,
+    improbable  = 1,
+    incredible  = 2,
+    remote      = 3,
+    occasional  = 4,
+    probable    = 5,
+    frequent    = 6
+};
+static const std::string PROBABILITY[] =
+{
+    "None",
+    "Improbable",
+    "Incredible",
+    "Remote",
+    "Occasional",
+    "Probable",
+    "Frequent"
+};
+
+#endif // PROPENUMS_H
