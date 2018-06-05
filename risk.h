@@ -2,6 +2,7 @@
 #define RISK_H
 #include "vulnerability.h"
 #include "threat.h"
+#include "responce.h"
 
 class Risk : SecObject
 {
@@ -15,6 +16,8 @@ public:
     Threat *threat() const;
     void threat(Threat *value);
     int rating() const;
+
+    Responce *resp = nullptr;
 
 private:
     void _calcRating();

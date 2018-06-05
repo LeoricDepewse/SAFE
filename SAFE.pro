@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     asset.cpp \
     vulnerability.cpp \
     threat.cpp \
-    risk.cpp
+    risk.cpp \
+    responce.cpp
 
 HEADERS  += overview.h \
     secobject.h \
@@ -38,6 +39,7 @@ HEADERS  += overview.h \
     propenums.h \
     vulnerability.h \
     threat.h \
-    risk.h
+    risk.h \
+    responce.h
 
 FORMS    += overview.ui

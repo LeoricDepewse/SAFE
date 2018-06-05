@@ -8,7 +8,8 @@ enum ObjectType
     asset,
     vulnerability,
     threat,
-    risk
+    risk,
+    responce
 };
 
 enum PropType
@@ -89,6 +90,16 @@ static const std::string PROBABILITY[] =
     "Occasional",
     "Probable",
     "Frequent"
+};
+
+enum ResponceType
+{
+    accept,
+    transfer,
+    prevent,
+    deter,
+    detect,
+    react
 };
 
 #endif // PROPENUMS_H
