@@ -7,13 +7,23 @@
 class Asset : SecObject
 {
 public:
-    Asset(std::string name, AssetType type);
+    Asset(std::string name, AssetType type, bool isNew = false);
 
-    ObjectType type();
+    ObjectType type() const;
 
-    std::string Description;
-    AssetType classification;
-    std::vector<Property> properties = std::vector<Property>();
+    std::string description() const;
+    AssetType classification() const;
+    std::vector<Property*> properties() const;
+
+    void description(std::string desc);
+    void classification(AssetType type);
+    void addProperty(Property *prop);
+    void removeProperty(Property *prop);
+
+private:
+    std::string _description;
+    AssetType _classification;
+    std::vector<Property*> _properties = std::vector<Property*>();
 };
 
 #endif // ASSET_H

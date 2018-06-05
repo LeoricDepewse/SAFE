@@ -7,23 +7,25 @@
 class Risk : SecObject
 {
 public:
-    Risk(std::string name, Vulnerability *vuln, Threat *threat);
+    Risk(std::string _name, Vulnerability *vuln, Threat *threat, bool isNew = false);
 
-    ObjectType type();
+    ObjectType type() const;
 
     Vulnerability *vuln() const;
-    void vuln(Vulnerability *value);
     Threat *threat() const;
-    void threat(Threat *value);
     int rating() const;
+    Responce *responce() const;
 
-    Responce *resp = nullptr;
+    void vuln(Vulnerability *value);
+    void threat(Threat *value);
+    void responce(Responce *resp);
 
 private:
     void _calcRating();
     Vulnerability *_vuln;
     Threat *_threat;
     int _rating;
+    Responce *_resp = nullptr;
 };
 
 #endif // RISK_H

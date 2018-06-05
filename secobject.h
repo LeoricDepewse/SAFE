@@ -6,11 +6,21 @@
 class SecObject
 {
 public:
-    SecObject(std::string name);
+    SecObject(std::string _name, bool isNew);
 
-    virtual ObjectType type();
+    virtual ObjectType type() const;
 
-    std::string name;
+    bool changed() const;
+    std::string name() const;
+
+    void changed(bool changed);
+    void name(std::string name);
+
+protected:
+    bool _changed;
+
+private:
+    std::string _name;
 };
 
 #endif // SECOBJECT_H

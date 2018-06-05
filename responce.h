@@ -5,12 +5,19 @@
 class Responce : SecObject
 {
 public:
-    Responce(std::string name, ResponceType action);
+    Responce(std::string name, ResponceType action, bool isNew = false);
 
-    ObjectType type();
+    ObjectType type() const;
 
-    ResponceType action;
-    std::string description = "";
+    ResponceType action() const;
+    std::string description() const;
+
+    void action(ResponceType action);
+    void description(std::string desc);
+
+private:
+    ResponceType _action;
+    std::string _description = "";
 };
 
 #endif // RESPONCE_H

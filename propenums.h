@@ -9,7 +9,8 @@ enum ObjectType
     vulnerability,
     threat,
     risk,
-    responce
+    responce,
+    property
 };
 
 enum PropType

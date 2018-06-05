@@ -6,14 +6,27 @@
 class Threat : SecObject
 {
 public:
-    Threat(std::string name, Probability frequency);
+    Threat(std::string _name, Probability frequency, bool isNew = false);
 
-    ObjectType type();
+    ObjectType type() const;
 
-    Probability frequency;
-    std::string method = "";
-    std::vector<Asset*> concerns = std::vector<Asset*>();
-    std::vector<Property> properties = std::vector<Property>();
+    Probability frequency() const;
+    std::string method() const;
+    std::vector<Asset*> concerns() const;
+    std::vector<Property*> properties() const;
+
+    void frequency(Probability frequency);
+    void method(std::string method);
+    void addConcern(Asset *concern);
+    void removeConcern(Asset *concern);
+    void addProperty(Property *prop);
+    void removeProperty(Property *prop);
+
+private:
+    Probability _frequency;
+    std::string _method = "";
+    std::vector<Asset*> _concerns = std::vector<Asset*>();
+    std::vector<Property*> _properties = std::vector<Property*>();
 };
 
 #endif // THREAT_H

@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     vulnerability.cpp \
     threat.cpp \
     risk.cpp \
-    responce.cpp
+    responce.cpp \
+    property.cpp
 
 HEADERS  += overview.h \
     secobject.h \
