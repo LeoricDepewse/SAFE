@@ -16,6 +16,7 @@ public:
     bool isNew() const;
 
     void changed(bool changed);
+    void id(int id);
     void name(std::string name);
 
 protected:

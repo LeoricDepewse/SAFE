@@ -38,6 +38,12 @@ void SecObject::changed(bool changed)
     _changed = changed;
 }
 
+void SecObject::id(int id)
+{
+    if(_id == -1)
+        _id = id;
+}
+
 void SecObject::name(std::string name)
 {
     _name = name;

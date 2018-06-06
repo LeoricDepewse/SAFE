@@ -7,7 +7,7 @@
 class Risk : SecObject
 {
 public:
-    Risk(std::string _name, Vulnerability *vuln, Threat *threat, int id, bool isNew = false);
+    Risk(std::string _name, Vulnerability *vuln, Threat *threat, int id = -1, bool isNew = false);
 
     ObjectType type() const;
 

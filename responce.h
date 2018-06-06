@@ -5,7 +5,7 @@
 class Responce : SecObject
 {
 public:
-    Responce(std::string name, ResponceType action, int id, bool isNew = false);
+    Responce(std::string name, ResponceType action, int id = -1, bool isNew = false);
 
     ObjectType type() const;
 
