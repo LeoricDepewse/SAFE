@@ -1,6 +1,6 @@
 #include "risk.h"
 
-Risk::Risk(std::string name, Vulnerability *vuln, Threat *threat, bool isNew) : SecObject(name, isNew)
+Risk::Risk(std::string name, Vulnerability *vuln, Threat *threat, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _vuln = vuln;
     _threat = threat;

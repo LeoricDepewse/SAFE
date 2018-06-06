@@ -1,10 +1,11 @@
 #include "secobject.h"
 
-SecObject::SecObject(std::string name, bool isNew)
+SecObject::SecObject(std::string name, int id, bool isNew)
 {
     this->_name = name;
-    id = nextId++;
+    _id = id;
     _changed = isNew;
+    _isNew = isNew;
 }
 
 ObjectType SecObject::type() const
@@ -17,9 +18,19 @@ bool SecObject::changed() const
     return _changed;
 }
 
+int SecObject::id() const
+{
+    return _id;
+}
+
 std::string SecObject::name() const
 {
     return _name;
+}
+
+bool SecObject::isNew() const
+{
+    return _isNew;
 }
 
 void SecObject::changed(bool changed)

@@ -1,6 +1,6 @@
 #include "threat.h"
 
-Threat::Threat(std::string name, Probability frequency, bool isNew) : SecObject(name, isNew)
+Threat::Threat(std::string name, Probability frequency, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _frequency = frequency;
 }

@@ -6,7 +6,7 @@
 class Threat : SecObject
 {
 public:
-    Threat(std::string _name, Probability frequency, bool isNew = false);
+    Threat(std::string _name, Probability frequency, int id, bool isNew = false);
 
     ObjectType type() const;
 

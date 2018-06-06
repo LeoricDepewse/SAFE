@@ -1,6 +1,6 @@
 #include "property.h"
 
-Property::Property(std::string name, PropType type, PropValue value, bool isNew) : SecObject(name, isNew)
+Property::Property(std::string name, PropType type, PropValue value, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _propType = type;
     _value = value;

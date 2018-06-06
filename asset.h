@@ -7,7 +7,7 @@
 class Asset : SecObject
 {
 public:
-    Asset(std::string name, AssetType type, bool isNew = false);
+    Asset(std::string name, AssetType type, int id, bool isNew = false);
 
     ObjectType type() const;
 

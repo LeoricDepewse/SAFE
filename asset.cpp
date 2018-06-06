@@ -1,6 +1,6 @@
 #include "asset.h"
 
-Asset::Asset(std::string name, AssetType type, bool isNew) : SecObject(name, isNew)
+Asset::Asset(std::string name, AssetType type, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _classification = type;
 }

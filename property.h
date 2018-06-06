@@ -5,7 +5,7 @@
 class Property : SecObject
 {
 public:
-    Property(std::string name, PropType type, PropValue value, bool isNew = false);
+    Property(std::string name, PropType type, PropValue value, int id, bool isNew = false);
 
     ObjectType type() const;
 

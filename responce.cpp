@@ -1,6 +1,6 @@
 #include "responce.h"
 
-Responce::Responce(std::string name, ResponceType action, bool isNew) : SecObject(name, isNew)
+Responce::Responce(std::string name, ResponceType action, int id, bool isNew) : SecObject(name, id, isNew)
 {
     this->action = action;
 }
