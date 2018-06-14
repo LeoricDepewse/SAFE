@@ -52,8 +52,8 @@ void Risk::responce(Responce *resp)
 
 void Risk::_calcRating()
 {
-    int frequency = (int)_threat->frequency;
-    int severity = (int)_vuln->severity;
+    int frequency = (int)_threat->frequency();
+    int severity = (int)_vuln->severity();
     _rating = frequency * severity;
     _changed = true;
 }

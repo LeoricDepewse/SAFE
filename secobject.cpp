@@ -40,8 +40,11 @@ void SecObject::changed(bool changed)
 
 void SecObject::id(int id)
 {
-    if(_id == -1)
+    if(_isNew)
+    {
         _id = id;
+        _isNew = false;
+    }
 }
 
 void SecObject::name(std::string name)
