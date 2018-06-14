@@ -13,6 +13,11 @@ ObjectType SecObject::type() const
     return base;
 }
 
+bool SecObject::sync()
+{
+    return false;
+}
+
 bool SecObject::changed() const
 {
     return _changed;

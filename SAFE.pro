@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui svg
+QT       += core gui svg sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     threat.cpp \
     risk.cpp \
     responce.cpp \
-    property.cpp
+    property.cpp \
+    database.cpp
 
 HEADERS  += overview.h \
     secobject.h \
@@ -41,6 +42,7 @@ HEADERS  += overview.h \
     vulnerability.h \
     threat.h \
     risk.h \
-    responce.h
+    responce.h \
+    database.h
 
 FORMS    += overview.ui

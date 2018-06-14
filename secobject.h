@@ -9,6 +9,7 @@ public:
     SecObject(std::string _name, int id, bool isNew);
 
     virtual ObjectType type() const;
+    virtual bool sync();
 
     bool changed() const;
     int id() const;
