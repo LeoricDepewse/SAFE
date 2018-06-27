@@ -8,17 +8,16 @@
 #include <string>
 
 #define DBNAME "SAFE"
-typedef std::map<std::string, std::string> MySQLData;
+typedef std::map<QString, QString> MySQLData;
 
 namespace Database
 {
     static bool connect();
     static void disconnect();
-    static QSqlQuery* select(std::string table);
-    static QSqlQuery* select(std::string table, std::string name);
-    static bool insert(std::string table, MySQLData data);
-    static bool update(std::string table, MySQLData data);
-    static bool erase(std::string table, std::string name);
+    static QSqlQuery* select(QString table, QString name = "");
+    static bool insert(QString table, MySQLData data);
+    static bool update(QString table, MySQLData data, int id);
+    static bool erase(QString table, int id);
 
     static bool connected;
     static QSqlDatabase db;
