@@ -12,6 +12,7 @@ public:
 
     ObjectType type() const;
     bool sync();
+    bool syncProps();
 
     QString description() const;
     AssetType classification() const;

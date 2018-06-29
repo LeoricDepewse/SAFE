@@ -1,6 +1,6 @@
 #include "property.h"
 
-Property::Property(std::string name, PropType type, PropValue value, int id, bool isNew) : SecObject(name, id, isNew)
+Property::Property(QString name, PropType type, PropValue value, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _propType = type;
     _value = value;
@@ -9,6 +9,24 @@ Property::Property(std::string name, PropType type, PropValue value, int id, boo
 ObjectType Property::type() const
 {
     return property;
+}
+
+bool Property::sync()
+{
+    MySQLData data;
+    data.insert(MySQLPair(OBJ_NAME, this->name()));
+    data.insert(MySQLPair(OBJ_TYPE, this->type()));
+    data.insert(MySQLPair(OBJ_VALUE, this->value()));
+    data.insert(MySQLPair(OBJ_RATIONALE, this->rationale()));
+
+    bool success = false;
+    if(this->id() == -1)
+    {
+        success = Database::insert(TBL_PROP, data);
+        id(Database::find(TBL_PROP, this->name()));
+    }
+    else success = Database::update(TBL_PROP, data, this->id());
+    return success;
 }
 
 PropType Property::propType() const
@@ -21,7 +39,7 @@ PropValue Property::value() const
     return _value;
 }
 
-std::string Property::rationale() const
+QString Property::rationale() const
 {
     return _rationale;
 }
@@ -38,7 +56,7 @@ void Property::value(PropValue value)
     _changed = true;
 }
 
-void Property::rationale(std::string rationale)
+void Property::rationale(QString rationale)
 {
     _rationale = rationale;
     _changed = true;

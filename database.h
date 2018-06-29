@@ -8,6 +8,7 @@
 #include <string>
 
 #define DBNAME "SAFE"
+typedef std::pair<QString, QString> MySQLPair;
 typedef std::map<QString, QString> MySQLData;
 
 namespace Database

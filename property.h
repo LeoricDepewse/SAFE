@@ -1,26 +1,28 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 #include "secobject.h"
+#define TBL_PROP "asset_props"
 
 class Property : SecObject
 {
 public:
-    Property(std::string name, PropType type, PropValue value, int id = -1, bool isNew = false);
+    Property(QString name, PropType type, PropValue value, int id = -1, bool isNew = false);
 
     ObjectType type() const;
+    bool sync();
 
     PropType propType() const;
     PropValue value() const;
-    std::string rationale() const;
+    QString rationale() const;
 
     void propType(PropType type);
     void value(PropValue value);
-    void rationale(std::string rationale);
+    void rationale(QString rationale);
 
 private:
     PropType _propType;
     PropValue _value;
-    std::string _rationale;
+    QString _rationale;
 };
 
 #endif // PROPERTY_H

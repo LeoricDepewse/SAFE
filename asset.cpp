@@ -13,9 +13,9 @@ ObjectType Asset::type() const
 bool Asset::sync()
 {
     MySQLData data;
-    data.emplace(OBJ_NAME, this->name());
-    data.emplace(OBJ_DESC, this->description());
-    data.emplace(OBJ_TYPE, QString::number(this->type()));
+    data.insert(MySQLPair(OBJ_NAME, this->name()));
+    data.insert(MySQLPair(OBJ_DESC, this->description()));
+    data.insert(MySQLPair(OBJ_TYPE, QString::number(this->type())));
 
     bool success = false;
     if(this->id() == -1)
@@ -25,6 +25,13 @@ bool Asset::sync()
     }
     else success = Database::update(TBL_ASSET, data, this->id());
     return success;
+}
+
+bool Asset::syncProps()
+{
+    for(auto it = _properties.begin(); it != _properties.end(); ++it)
+        if(!it->sync()) return false;
+    return true;
 }
 
 QString Asset::description() const
