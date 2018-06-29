@@ -1,6 +1,6 @@
 #ifndef PROPENUMS_H
 #define PROPENUMS_H
-#include <string>
+#include <QString>
 
 enum ObjectType
 {
@@ -25,7 +25,7 @@ enum PropType
     unobservability = 7,
     unlinkability   = 8
 };
-static const std::string PROPTYPES[] =
+static const QString PROPTYPES[] =
 {
     "None"
     "Confidentiality",
@@ -45,7 +45,7 @@ enum PropValue
     medium = 2,
     high   = 3
 };
-static const std::string PROPVALUES[] =
+static const QString PROPVALUES[] =
 {
     "None",
     "Low",
@@ -62,7 +62,7 @@ enum AssetType
     hardware    = 4,
     people      = 5
 };
-static const std::string ASSETTYPE[] =
+static const QString ASSETTYPE[] =
 {
     "None",
     "Information",
@@ -82,7 +82,7 @@ enum Probability
     probable    = 5,
     frequent    = 6
 };
-static const std::string PROBABILITY[] =
+static const QString PROBABILITY[] =
 {
     "None",
     "Improbable",

@@ -1,9 +1,10 @@
 #include "property.h"
 
-Property::Property(QString name, PropType type, PropValue value, int id, bool isNew) : SecObject(name, id, isNew)
+Property::Property(QString name, PropType type, PropValue value, ObjectType table, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _propType = type;
     _value = value;
+    _table = table;
 }
 
 ObjectType Property::type() const
@@ -19,13 +20,20 @@ bool Property::sync()
     data.insert(MySQLPair(OBJ_VALUE, this->value()));
     data.insert(MySQLPair(OBJ_RATIONALE, this->rationale()));
 
+    QString tbl;
+    if(this->table() == asset)
+        tbl = TBL_PROP_ASSET;
+    else if(this->table() == threat)
+        tbl = TBL_PROP_THREAT;
+    else return false;
+
     bool success = false;
     if(this->id() == -1)
     {
-        success = Database::insert(TBL_PROP, data);
+        success = Database::insert(tbl, data);
         id(Database::find(TBL_PROP, this->name()));
     }
-    else success = Database::update(TBL_PROP, data, this->id());
+    else success = Database::update(tbl, data, this->id());
     return success;
 }
 
