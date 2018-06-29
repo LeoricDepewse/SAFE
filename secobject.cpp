@@ -1,6 +1,6 @@
 #include "secobject.h"
 
-SecObject::SecObject(std::string name, int id, bool isNew)
+SecObject::SecObject(QString name, int id, bool isNew)
 {
     this->_name = name;
     _id = id;
@@ -28,7 +28,7 @@ int SecObject::id() const
     return _id;
 }
 
-std::string SecObject::name() const
+QString SecObject::name() const
 {
     return _name;
 }
@@ -52,7 +52,7 @@ void SecObject::id(int id)
     }
 }
 
-void SecObject::name(std::string name)
+void SecObject::name(QString name)
 {
     _name = name;
     _changed = true;

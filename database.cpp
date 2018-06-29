@@ -26,19 +26,19 @@ void disconnect()
     connected = false;
 }
 
-QSqlQuery *select(QString table, QString name)
+QSqlQuery *select(QString table, int id)
 {
     if(!connected)
         return nullptr;
 
     QString statement = "SELECT * FROM :table";
-    if(!name.isEmpty())
-        statement += " WHERE name = :name";
+    if(id == -1)
+        statement += " WHERE id = :id";
 
     QSqlQuery* query = new QSqlQuery(db);
     query->prepare(statement);
         query->bindValue(":table", table);
-        query->bindValue(":name", name);
+        query->bindValue(":id", id);
 
     if(query->exec())
         return query;
@@ -113,4 +113,25 @@ bool erase(QString table, int id)
     bool success = query->exec();
     delete query;
     return success;
+}
+
+int find(QString table, QString name)
+{
+    if(!connected)
+        return -1;
+
+    QSqlQuery* query = new QSqlQuery(db);
+
+    QString statement = "SELECT id FROM :table WHERE name = :name";
+
+    query->prepare(statement);
+        query->bindValue(":table", table);
+        query->bindValue(":name", name);
+
+    if(!query->exec())
+        return -1;
+    query->next();
+    int id = query->value("id").toInt();
+    delete query;
+    return id;
 }

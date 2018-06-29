@@ -1,6 +1,6 @@
 #include "asset.h"
 
-Asset::Asset(std::string name, AssetType type, int id, bool isNew) : SecObject(name, id, isNew)
+Asset::Asset(QString name, AssetType type, int id, bool isNew) : SecObject(name, id, isNew)
 {
     _classification = type;
 }
@@ -10,7 +10,24 @@ ObjectType Asset::type() const
     return asset;
 }
 
-std::string Asset::description() const
+bool Asset::sync()
+{
+    MySQLData data;
+    data.emplace(OBJ_NAME, this->name());
+    data.emplace(OBJ_DESC, this->description());
+    data.emplace(OBJ_TYPE, QString::number(this->type()));
+
+    bool success = false;
+    if(this->id() == -1)
+    {
+        success = Database::insert(TBL_ASSET, data);
+        id(Database::find(TBL_ASSET, this->name()));
+    }
+    else success = Database::update(TBL_ASSET, data, this->id());
+    return success;
+}
+
+QString Asset::description() const
 {
     return _description;
 }
@@ -25,7 +42,7 @@ std::vector<Property*> Asset::properties() const
     return _properties;
 }
 
-void Asset::description(std::string desc)
+void Asset::description(QString desc)
 {
     _description = desc;
     _changed = true;

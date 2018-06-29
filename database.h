@@ -14,10 +14,11 @@ namespace Database
 {
     static bool connect();
     static void disconnect();
-    static QSqlQuery* select(QString table, QString name = "");
+    static QSqlQuery* select(QString table, int id = -1);
     static bool insert(QString table, MySQLData data);
     static bool update(QString table, MySQLData data, int id);
     static bool erase(QString table, int id);
+    static int  find(QString table, QString name);
 
     static bool connected;
     static QSqlDatabase db;
